@@ -11,6 +11,7 @@
 
 #ifdef WIN32
 #include <winsock.h>
+#pragma comment(lib, "Ws2_32.lib")
 #define EISCONN      WSAEISCONN
 #define EINPROGRESS  WSAEINPROGRESS 
 #define EALREADY     WSAEALREADY 
