@@ -12,6 +12,9 @@
  *       bcc32 -DWIN32 -c sha256.c wots/wots.c
  *       bcc32 -DWIN32 wallet.c wots.obj sha256.obj
  *
+ *       Visual studio 2017:
+ *       cl.exe /DWIN32 wallet.c crypto\sha256.c crypto\wots\wots.c
+ *
  *       Unix-like:
  *       cc -DUNIXLIKE -DLONG64 -c sha256.c wots/wots.c
  *       cc -o wallet -DUNIXLIKE -DLONG64 wallet.c wots.o sha256.o
@@ -39,10 +42,12 @@
 #include <unistd.h>
 #define CLEARSCR() system("clear")
 #else
-#define CLEARSCR() clrscr()
-void clrscr(void);
+#define CLEARSCR() system("cls")
 typedef int pid_t;
-unsigned sleep(unsigned seconds);
+unsigned sleep(unsigned seconds) {
+	Sleep(seconds*1000);
+	return 0;
+}
 #endif
 
 #define OP_HELLO          1
