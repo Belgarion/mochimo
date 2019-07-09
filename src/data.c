@@ -60,7 +60,7 @@ word32 Rplistidx;
 word32 Cplist[CPLISTLEN];  /* current peer list */
 word32 Cplistidx;
 /* LAN peer list */
-#define LPLISTLEN 1
+#define LPLISTLEN 32
 word32 Lplist[LPLISTLEN] = { 0 };
 word32 Splist[RPLISTLEN+LPLISTLEN] = {0};
 
